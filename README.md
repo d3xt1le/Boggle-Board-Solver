@@ -21,7 +21,20 @@ To use this solver you just have to clone this repository using one of the follo
 - Through GitHub CLI:
 `gh repo clone d3xt1le/Boggle-Board-Solver`
 
-## Usage
+## Running the solver
+1. Navigate to the project directory:
+`cd path/to/repository`
+2. The repository contains the following components:
+    - `Boards/`: A folder containing all the pre-defined Boggle boards that the AI can solve.
+    - `Outputs/`: This folder will store the output text files, listing all the validated words the AI has found on the Boggle boards.
+    - `board_generator.py`: A Python script to randomly generate NxN Boggle boards. 
+    - `boggle_solver.py`: The main script that runs the AI to solve the Boggle boards. This script will search for valid words on the board using the dictionary.
+    - `word_dictionary.txt`: A text file containing the dictionary of words used by the AI to validate and identify words found on the board.
+3. To generate random boards:
+`python board_generator.py <board_size> <output_filename>`
+    - The generated board will be saved to the `Outputs/` folder.
+4. To run the solver:
+`python boggle_solver.py Boards/<board_filename> word_dictionary.txt`
 
 ## Key Code Components
 1. **Trie Data Structure:**
