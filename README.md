@@ -32,11 +32,77 @@ To use this solver you just have to clone this repository using one of the follo
     - `word_dictionary.txt`: A text file containing the dictionary of words used by the AI to validate and identify words found on the board.
 3. To generate random boards:
 `python board_generator.py <board_size> <output_filename>`
-    - The generated board will be saved to the `Outputs/` folder.
+    - The generated board will be saved to the `Boards/` folder.
 4. To run the solver:
 `python boggle_solver.py Boards/<board_filename> word_dictionary.txt`
+    - The found words will be saved to the `Outputs/` folder.
 
-## Key Code Components
+## Board Solver Example:
+- Running the solver on a 4x4 board:
+`python boggle_solver.py Boards/board4.txt word_dictionary.txt`
+- Terminal Output:
+```python
+Y W A B
+Y X I D
+Q M D J
+P L N A
+
+And we're off!
+Running with cleverness ON
+All done
+
+
+Searched total of 205 moves in 0.002262 seconds.
+
+
+Words found:
+2 -letter words: AB, AD, AI, AN, AW, AX, BA, BI, ID, MI, MY, NA, XI
+3 -letter words: ADD, AID, AIM, AND, BAD, BID, DAB, DAN, DAW, DIB, DID, DIM, IMP, JIB, MIB, MID, MIX, WAB, WAD, WAX
+4 -letter words: JIMP, WADI, WAXY, WIMP
+5 -letter words: ADDAX, ADMIX
+
+Found 39 words in total.
+Alpha-sorted list words:
+AB, AD, ADD, ADDAX, ADMIX, AI, AID, AIM, AN, AND, AW, AX, BA, BAD, BI, BID, DAB, DAN, DAW, DIB, DID, DIM, ID, IMP, JIB, JIMP, MI, MIB, MID, MIX, MY, NA, WAB, WAD, WADI, WAX, WAXY, WIMP, XI
+```
+- Output file with found words:
+```
+AB
+AD
+ADD
+ADDAX
+ADMIX
+AI
+AID
+AIM
+AN
+AND
+AW
+AX
+BA
+BAD
+BI
+...
+```
+
+## Board Generator Example:
+- Running the generator to create a 10x10 board:
+`python board_generator.py 10 board10.txt`
+- Contents of output file:
+```
+C X A E D A B B H T
+X M D C G R D K H V
+O S O I O C B J W W
+J Z W X G A X E D V
+Y E L L N S B L H R
+J N Z W G Y U R X X
+C L S Y N N M Z K B
+A L Q H F N S U M T
+B K T Z O Z B T Q G
+F R G Z Z W N J U S
+```
+
+## Key Solver Components
 1. **Trie Data Structure:**
     - **Purpose:** Efficiently stores and retrieves words from the dictionary, allowing quick prefix checks.
     - **Usage:** 
