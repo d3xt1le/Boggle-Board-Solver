@@ -12,6 +12,17 @@ The AI works by recursively exploring all possible paths on the Boggle board, st
 * **Dictionary Support:** The solver uses a dictionary file to validate words.
 * **Command-Line Interface:** Allows the solver to be run directly from the terminal.
 
+## Setup
+To use this solver you just have to clone this repository using one of the following commands.
+- Through HTTPS:
+`git clone https://github.com/yourusername/boggle-solver.git`
+- Through SSH:
+`git clone git@github.com:d3xt1le/Boggle-Board-Solver.git`
+- Through GitHub CLI:
+`gh repo clone d3xt1le/Boggle-Board-Solver`
+
+## Usage
+
 ## Key Code Components
 1. **Trie Data Structure:**
     - **Purpose:** Efficiently stores and retrieves words from the dictionary, allowing quick prefix checks.
@@ -25,5 +36,3 @@ The AI works by recursively exploring all possible paths on the Boggle board, st
       - For each starting position on the board, it recursively explores all adjacent cells.
       - Utilizes the Trie to prune paths that cannot lead to valid words (i.e., if the current string isn't a prefix of any word in the dictionary).
       - Collects valid words and avoids revisiting the same cell in a single word path.
-    
-
