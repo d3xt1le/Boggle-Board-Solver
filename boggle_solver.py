@@ -5,7 +5,7 @@ import random
 import string
 from sys import argv
 
-# global variables
+# Global variables
 totalMoves = 1
 SUBGROUP_DEPTH = 2
 
