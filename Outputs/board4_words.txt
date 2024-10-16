@@ -1,3 +1,7 @@
+Board solved in 205 moves
+Total words found: 39
+Final solve time: 0.002254 seconds
+
 AB
 AD
 ADD

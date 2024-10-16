@@ -176,9 +176,12 @@ def runBoard(board_filename, dictionary_filename):
     # End time
     endTime = time.time()
 
+    # Calculate final time
+    finalTime = round(endTime - startTime, 6)
+
     # Display times and moves
     print(
-        f"\nSearched total of {totalMoves} moves in {round(endTime - startTime, 6)} seconds.\n")
+        f"\nSearched total of {totalMoves} moves in {finalTime} seconds.\n")
 
     # Display organized words
     print("\nWords found:")
@@ -197,10 +200,10 @@ def runBoard(board_filename, dictionary_filename):
     print(f"\nFound {totalWords} words in total.\nAlpha-sorted list words:")
     print(*sorted(wordList), sep=', ')
 
-    return wordList
+    return wordList, totalMoves, finalTime, totalWords
 
 
-def outputFile(boardFile, wordList):
+def outputFile(boardFile, wordList, finalTime, totalWords, totalMoves):
     # check output directory exists
     output_dir = "Outputs"
     os.makedirs(output_dir, exist_ok=True)
@@ -214,6 +217,16 @@ def outputFile(boardFile, wordList):
 
     # open output file and write words to it
     with open(outName, "w") as outFile:
+        # write total moves taken to solve board to file
+        outFile.write(f"Board solved in {totalMoves} moves\n")
+
+        # write total words found to file
+        outFile.write(f"Total words found: {totalWords}\n")
+
+        # write total solve time to file
+        outFile.write(f"Final solve time: {finalTime} seconds\n\n")
+
+        # write words found to file
         for word in wordList:
             outFile.write(f"{word.upper()}\n")
 
@@ -225,9 +238,10 @@ def main():
     dictionary_filename = dictionaryArg
 
     # add list of words to output file
-    wordList = runBoard(board_filename, dictionary_filename)
+    wordList, totalMoves, finalTime, totalWords = runBoard(
+        board_filename, dictionary_filename)
     wordList.sort()
-    outputFile(board_filename, wordList)
+    outputFile(board_filename, wordList, finalTime, totalWords, totalMoves)
 
 
 if __name__ == "__main__":
